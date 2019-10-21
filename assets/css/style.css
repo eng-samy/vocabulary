@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Big+Shoulders+Text|Open+Sans:300,600&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower|Open+Sans:300,600&display=swap');
 body,html{
     font-family: 'Open Sans', sans-serif;
     font-size: 14px;
@@ -24,7 +24,8 @@ header{
 }
 
 .navbar-brand {
-font-weight: bold
+font-weight: bold;
+font-family: 'Indie Flower', cursive;
 }
 
 table td {
@@ -153,18 +154,6 @@ color: #563d7c
   box-shadow: 0 0 0 0.2rem #ffb9bf !important;
 }
 
-/* .tempEffect{
-  animation: background-fade 2s forwards;
-}
-
-@keyframes background-fade {
-  99.9% {
-      background:#E1FEE0;
-  }
-  100% {
-      background:#000;
-  }
-} */
 
 .shake {
   animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
@@ -196,18 +185,25 @@ margin-left: 10px
 }
 
 .loader {
-    display: inline-block;
-    position: absolute;
-    top:50%;
-    left: 50%;
-    width: 64px;
-    height: 64px;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 64px;
+  height: 64px;
+  margin: auto;
+  
   }
 
   .loader span {
-    margin-top: 70px;
     display: block;
+    margin: 80px auto 0 auto;
+    text-align: center;
+    font-size: 12px;
   }
+
   .loader div {
     box-sizing: border-box;
     display: block;
