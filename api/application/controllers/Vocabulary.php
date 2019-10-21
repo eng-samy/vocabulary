@@ -50,14 +50,6 @@ class Vocabulary extends CI_Controller {
 		echo json_encode($this->Vocabulary_Model->random_rows());
 	}
 
-	public function generate(){
-		for($i=18; $i<=200; $i++){
-			$data['native_word'] = $i;
-			$data['translated_word'] = $i;
-			$this->Vocabulary_Model->add($data);
-		}
-	}
-
 	public function submit_results(){
 		$method = $_SERVER['REQUEST_METHOD'];
 		if($method != 'POST'){

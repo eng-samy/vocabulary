@@ -22,11 +22,10 @@ class Vocabulary_Model extends CI_Model {
         }
     }
 
-
     public function random_rows(){
         $this->db->select('id,native_word');
         $this->db->from($this->table);
-        $this->db->limit(5);
+        $this->db->limit(20);
         $this->db->order_by('id','RANDOM');
         return $this->db->get()->result();
     }
