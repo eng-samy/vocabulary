@@ -4,7 +4,7 @@ $(document).ready(function() {
 
 const loader = '<div class="loader"><div></div><div></div><div></div><div></div> <span>Loading</span></div>';
 
-const endpoint = "http://localhost/vocabulary/api/index.php/";
+const endpoint = "http://vocabulary.samy.engineer/api/index.php/";
 
 const req_num_row = 20;
 
