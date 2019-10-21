@@ -4,7 +4,7 @@ $(document).ready(function() {
 
 const loader = '<div class="loader"><div></div><div></div><div></div><div></div> <span>Loading</span></div>';
 
-const endpoint = "http://localhost/siteJet/api/index.php/";
+const endpoint = "http://vocabulary.samy.engineer/api/index.php/";
 
 const req_num_row = 20;
 
@@ -69,32 +69,32 @@ function add_handler() {
         var englishValue = $('#englishValue').val();
         var germanValue = $('#germanValue').val();
 
-       if(require_field($('#englishValue')) && require_field($('#germanValue'))){
+        if (require_field($('#englishValue')) && require_field($('#germanValue'))) {
 
-        $.post(endpoint + "vocabulary/add", {
-            englishValue: englishValue,
-            germanValue: germanValue
-        }).done(function(response) {
-            data = JSON.parse(response);
-            console.log(data);
-            if (data.status == 200) {
-                $("#newVocab").remove();
-                var new_row = "<tr id='vocab_" + data.item_id + "' class='new_item'><td>" + englishValue + "</td><td>" + germanValue + "</td><td><button class='btn btn-danger btn-sm delete_item'><i class='fa fa-trash'><i></button></td></tr>";
-                $('#app table tbody').prepend(new_row);
-                $('#newItem').fadeIn();
+            $.post(endpoint + "vocabulary/add", {
+                englishValue: englishValue,
+                germanValue: germanValue
+            }).done(function(response) {
+                data = JSON.parse(response);
+                console.log(data);
+                if (data.status == 200) {
+                    $("#newVocab").remove();
+                    var new_row = "<tr id='vocab_" + data.item_id + "' class='new_item'><td>" + englishValue + "</td><td>" + germanValue + "</td><td><button class='btn btn-danger btn-sm delete_item'><i class='fa fa-trash'><i></button></td></tr>";
+                    $('#app table tbody').prepend(new_row);
+                    $('#newItem').fadeIn();
 
-                $new_item_tr = $('#vocab_' + data.item_id);
-                $new_item_tr.css("background-color", "#c2e2c0");
-                setTimeout(function() {
-                    $new_item_tr.css("background-color", "");
-                }, 400);
+                    $new_item_tr = $('#vocab_' + data.item_id);
+                    $new_item_tr.css("background-color", "#c2e2c0");
+                    setTimeout(function() {
+                        $new_item_tr.css("background-color", "");
+                    }, 400);
 
-                pagination('add');
-            } else {
-                alert(data.message);
-            }
-        });
-    }
+                    pagination('add');
+                } else {
+                    alert(data.message);
+                }
+            });
+        }
     });
 
     $("#skipBtn").on('click', function() {
@@ -129,46 +129,46 @@ function pagination(oper = 'update') {
     var total_num_row = $tr.length;
     var num_pages = 0;
     var active_page = $('#pagination li.active').text();
-    if(total_num_row != 0){
+    if (total_num_row != 0) {
         $('.noData').remove();
-    if (total_num_row % req_num_row == 0) {
-        num_pages = total_num_row / req_num_row;
-    }
-    if (total_num_row % req_num_row >= 1) {
-        num_pages = total_num_row / req_num_row;
-        num_pages++;
-        num_pages = Math.floor(num_pages++);
-    }
-    var pager_content = '';
-    if (total_num_row > req_num_row) {
-        for (var i = 1; i <= num_pages; i++) {
-            pager_content += '<li class="page-item" id="page_' + i + '"><a class="page-link" href="#">' + i + "</a></li>";
+        if (total_num_row % req_num_row == 0) {
+            num_pages = total_num_row / req_num_row;
         }
-    } else {
-        active_page = 1;
-    }
-
-    $('#pagination').html(pager_content);
-
-    $tr.each(function(i) {
-        $(this).hide();
-        if (i + 1 <= req_num_row) {
-            $tr.eq(i).show();
+        if (total_num_row % req_num_row >= 1) {
+            num_pages = total_num_row / req_num_row;
+            num_pages++;
+            num_pages = Math.floor(num_pages++);
         }
-    });
+        var pager_content = '';
+        if (total_num_row > req_num_row) {
+            for (var i = 1; i <= num_pages; i++) {
+                pager_content += '<li class="page-item" id="page_' + i + '"><a class="page-link" href="#">' + i + "</a></li>";
+            }
+        } else {
+            active_page = 1;
+        }
 
-    $('#pagination li').removeClass('active');
-    if (active_page.length == 0 || oper == 'add') {
-        $('#pagination li').first().addClass('active');
-        active_page = 1;
+        $('#pagination').html(pager_content);
+
+        $tr.each(function(i) {
+            $(this).hide();
+            if (i + 1 <= req_num_row) {
+                $tr.eq(i).show();
+            }
+        });
+
+        $('#pagination li').removeClass('active');
+        if (active_page.length == 0 || oper == 'add') {
+            $('#pagination li').first().addClass('active');
+            active_page = 1;
+        } else {
+            $('#pagination #page_' + active_page).addClass('active');
+
+        }
+        redraw(active_page);
     } else {
-        $('#pagination #page_' + active_page).addClass('active');
-
+        $('#app table tbody').html("<h6 class='noData'> No Data Available</h6>");
     }
-    redraw(active_page);
-}else{
-    $('#app table tbody').html("<h6 class='noData'> No Data Available</h6>");
-}
 
     $('#pagination a').click(function(e) {
         e.preventDefault();
@@ -180,11 +180,11 @@ function pagination(oper = 'update') {
     });
 }
 
-function search_in_table(){
+function search_in_table() {
     $("#searchBox").on("keyup", function() {
         var value = $(this).val().toLowerCase();
         $("#app table tr").filter(function() {
-          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
         });
     });
 }
@@ -220,11 +220,11 @@ function redraw(page) {
     }
 }
 
-$("#startTest").on('click', function() { 
+$("#startTest").on('click', function() {
     load_test();
 });
 
-function load_test(){
+function load_test() {
     $('#app').html(loader);
     $('#actions').hide();
     $.ajax({
@@ -239,15 +239,16 @@ function load_test(){
         challenge_vocab();
     });
 }
-function challenge_vocab(){
-    if(vocabs.length === 0){
+
+function challenge_vocab() {
+    if (vocabs.length === 0) {
         $('#vocab_content').html('<button class="btn btn-success mb-3 font-weight-bold" id="showResults"> <i class="fa fa-signal"></i> Show Results</button>');
-        $('#progress-bar').css('background-color',"#59c972");
+        $('#progress-bar').css('background-color', "#59c972");
         $('#app .card .card-text').html("You have successfully completed the test, Click to below button to show results");
-    }else{
+    } else {
         curr_vocab = vocabs.shift();
-        new_step ='<div class="form-group mb-3 col-md-3"><label class="sr-only">English</label><input type="text" readonly class="form-control-plaintext font-weight-bold text-center" id="fromLang" value="“'+curr_vocab.native_word+'”"></div><div class="form-group mx-sm-3 mb-3 col-md-4"><label class="sr-only">German</label> <input type="text" class="form-control" placeholder="In German" id="answerValue"></div><button type="submit" class="btn btn-new mb-3" id="submitAnswer">Submit</button></div></div>';
-    
+        new_step = '<div class="form-group mb-3 col-md-3"><label class="sr-only">English</label><input type="text" readonly class="form-control-plaintext font-weight-bold text-center" id="fromLang" value="“' + curr_vocab.native_word + '”"></div><div class="form-group mx-sm-3 mb-3 col-md-4"><label class="sr-only">German</label> <input type="text" class="form-control" placeholder="In German" id="answerValue"></div><button type="submit" class="btn btn-new mb-3" id="submitAnswer">Submit</button></div></div>';
+
         $('#vocab_content').html(new_step);
         $('#answerValue').focus();
 
@@ -255,21 +256,21 @@ function challenge_vocab(){
 }
 
 $("#app").on('click', '#submitAnswer', function() {
-    if(require_field($("#answerValue"))){
+    if (require_field($("#answerValue"))) {
         submit_answer();
     }
 });
 
-function submit_answer(){
+function submit_answer() {
     var answer = $('#answerValue').val();
     curr_vocab.answer = answer;
     answers.push(curr_vocab);
-    var progress = (answers.length * 100)/challenge_count;
-    $('#progress-bar').css('width',progress+"%");
-    $('#progress-bar').html(progress+"%");
-    if(answers.length != challenge_count){
-    $('#progress-header').html("Step "+ ( answers.length + 1 ) +" from "+challenge_count);
-    }else{
+    var progress = (answers.length * 100) / challenge_count;
+    $('#progress-bar').css('width', progress + "%");
+    $('#progress-bar').html(progress + "%");
+    if (answers.length != challenge_count) {
+        $('#progress-header').html("Step " + (answers.length + 1) + " from " + challenge_count);
+    } else {
         $('#progress-header').html('Test Completed!');
     }
     challenge_vocab();
@@ -279,26 +280,26 @@ $("#app").on('click', '#showResults', function() {
     get_results();
 });
 
-function get_results(){
+function get_results() {
     $('#app').html(loader);
     $.post(endpoint + "vocabulary/submit_results", {
         answers: JSON.stringify(answers)
     }).done(function(response) {
-        console.log("Results Loaded",response);
+        console.log("Results Loaded", response);
         data = JSON.parse(response);
         show_results(data.results);
     });
 }
 
-function show_results(results){
+function show_results(results) {
     var table_data = "";
     $.each(results, function(key, value) {
-        if(value.result == 0){
+        if (value.result == 0) {
             var indictor = "<span class='result-indictor font-weight-bold wrong-answer'><i class='fa fa-times'></i> Wrong Answer</span>";
-        }else{
+        } else {
             var indictor = "<span class='result-indictor font-weight-bold correct-answer'><i class='fa fa-check'></i> Correct Answer</span>";
         }
-        table_data += "<tr><td>" + value.native_word + "</td><td>" + value.translated_word + "</td><td>"+value.answer+"</td><td>"+indictor+"</td></tr>";
+        table_data += "<tr><td>" + value.native_word + "</td><td>" + value.translated_word + "</td><td>" + value.answer + "</td><td>" + indictor + "</td></tr>";
     });
 
     $('#results table tbody').html(table_data);
@@ -310,13 +311,13 @@ function show_results(results){
     $('#app').html($('#results').html());
 }
 
-$("#backHome").on('click', function() { 
+$("#backHome").on('click', function() {
     load_data();
 });
 
-function require_field(input){
+function require_field(input) {
     var input_val = input.val();
-    if(input_val.length === 0){
+    if (input_val.length === 0) {
         input.addClass('form_error');
         input.addClass('shake');
         input.focus();
