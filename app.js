@@ -24,7 +24,6 @@ function load_vocabs() {
     $.ajax({
         url: endpoint + "vocabulary"
     }).done(function(data) {
-        console.log("Data Loaded", JSON.parse(data))
         render_vocabs(JSON.parse(data));
         delete_handler();
         pagination();
