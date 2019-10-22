@@ -229,6 +229,7 @@ $("#startTest").on('click', function() {
 function load_test() {
     $('#app').html(loader);
     $('#actions').hide();
+    $('#percentage').hide();
     $.ajax({
         url: endpoint + "vocabulary/get_random_vocabs"
     }).done(function(data) {
