@@ -1,0 +1,242 @@
+/*  Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+
+    body {
+        font-size: 10px;
+    }
+
+    .div-width {
+        width: 100%;
+    }
+
+    .container {
+        padding: 0;
+    }
+
+    .container-header {
+        margin: 0;
+        padding: 0 15px;
+    }
+
+    button.btn {
+        font-size: 8px;
+    }
+
+    .search-box .fa-search {
+        font-size: 12px;
+        left: 9px;
+    }
+
+    #searchBox {
+        width: 50%;
+        text-indent: 18px;
+    }
+
+    #actions {
+        margin-bottom: 15px;
+    }
+
+    #pageTitle {
+        font-size: 16px;
+    }
+
+    .navbar {
+        display: block;
+        text-align: center;
+    }
+
+    .pagination-nav {
+        padding: 0 15px;
+    }
+
+    .form-control {
+        font-size: 10px;
+    }
+
+    #addOperation button {
+        width: 100%;
+    }
+
+    #addOperation button.btn-new {
+        margin-bottom: 5px;
+    }
+
+    .table td,
+    .table th {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    #vocab_content {
+        margin-top: 10px
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+
+    body {
+        font-size: 12px;
+    }
+
+    .div-width {
+        width: 100%;
+    }
+
+    .container {
+        padding: 0;
+    }
+
+    .container-header {
+        margin: 0;
+        padding: 0 15px;
+    }
+
+    button.btn {
+        font-size: 10px;
+    }
+
+    .search-box .fa-search {
+        font-size: 14px;
+        left: 9px;
+    }
+
+    #searchBox {
+        width: 50%;
+        text-indent: 18px;
+    }
+
+    #actions {
+        margin-bottom: 15px;
+    }
+
+    #pageTitle {
+        font-size: 18px;
+    }
+
+    .navbar {
+        display: block;
+        text-align: center;
+    }
+
+    .pagination-nav {
+        padding: 0 15px;
+    }
+
+    .form-control {
+        font-size: 12px;
+    }
+
+    #addOperation button {
+        width: 100%;
+    }
+
+    #addOperation button.btn-new {
+        margin-bottom: 5px;
+    }
+
+    .table td,
+    .table th {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    #vocab_content {
+        margin-top: 10px
+    }
+
+}
+
+/*  Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+
+    body {
+        font-size: 12px;
+    }
+
+    .div-width {
+        width: 83.333333%;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+    .container {
+        padding: 0;
+    }
+
+    .container-header {
+        margin: 0;
+        padding: 0 15px;
+    }
+
+    button.btn {
+        font-size: 10px;
+    }
+
+    .search-box .fa-search {
+        font-size: 14px;
+        left: 9px;
+    }
+
+    #searchBox {
+        width: 50%;
+        text-indent: 18px;
+    }
+
+    #actions {
+        margin-bottom: 15px;
+    }
+
+    #pageTitle {
+        font-size: 18px;
+    }
+
+    .navbar {
+        display: block;
+        text-align: center;
+    }
+
+    .pagination-nav {
+        padding: 0 15px;
+    }
+
+    .form-control {
+        font-size: 12px;
+    }
+
+    #addOperation button {
+        width: 100%;
+    }
+
+    #addOperation button.btn-new {
+        margin-bottom: 5px;
+    }
+
+    .table td,
+    .table th {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    #vocab_content {
+        margin-top: 10px
+    }
+}
+
+/*  Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .div-width {
+        width: 83.333333%;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+}
+
+/*  Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .div-width {
+        width: 83.333333%;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+}

@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    load_data();
+    load_vocabs();
 });
 
 const loader = '<div class="loader"><div></div><div></div><div></div><div></div> <span>Loading</span></div>';
@@ -16,7 +16,7 @@ const challenge_count = 20;
 
 let curr_vocab;
 
-function load_data() {
+function load_vocabs() {
     $('#app').html(loader);
     $('#pageTitle').hide();
     $('#actions').hide();
@@ -64,7 +64,7 @@ $("#newItem").on('click', function() {
     }
 });
 
-function add_handler() {
+function add_handler(){
     $("#addBtn").on('click', function() {
         var englishValue = $('#englishValue').val();
         var germanValue = $('#germanValue').val();
@@ -312,7 +312,7 @@ function show_results(results) {
 }
 
 $("#backHome").on('click', function() {
-    load_data();
+    load_vocabs();
 });
 
 function require_field(input) {
