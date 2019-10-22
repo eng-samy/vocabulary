@@ -19,9 +19,9 @@ let curr_vocab;
 function load_vocabs() {
     $('#app').html(loader);
     $('#pageTitle').hide();
+    $('#percentage').hide();
     $('#actions').hide();
     $('#backHome').hide();
-    $('#percentage').hide();
     $.ajax({
         url: endpoint + "vocabulary"
     }).done(function(data) {
