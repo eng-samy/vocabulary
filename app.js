@@ -35,7 +35,7 @@ function render_vocabs(data) {
 
     var table_data = "";
     $.each(data, function(key, value) {
-        table_data += "<tr id='vocab_" + value.id + "'><td>" + value.native_word + "</td><td>" + value.translated_word + "</td><td><button class='btn btn-danger btn-sm delete_item'><i class='fa fa-trash'><i></button></td></tr>";
+        table_data += "<tr id='vocab_" + value.id + "'><td>" + value.native_word + "</td><td>" + value.translated_word + "</td><td><button class='btn btn-danger btn-sm font-weight-bold delete_item'><i class='fa fa-trash'><i></button></td></tr>";
     });
 
     $('#vocabs table tbody').html(table_data);
