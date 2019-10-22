@@ -109,7 +109,8 @@ function delete_handler() {
     $("#app table tbody").on('click', '.delete_item', function() {
         var closest_tr = this.closest('tr').id
         item_id = closest_tr.split('_')[1];
-
+        $(this).attr("disabled", true);
+        $(this).html('<i class="fa fa-spinner fa-spin"></i> Removing');
         $.post({
             url: endpoint + 'vocabulary/delete',
             data: {
