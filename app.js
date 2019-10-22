@@ -77,7 +77,6 @@ function add_handler(){
                 germanValue: germanValue
             }).done(function(response) {
                 data = JSON.parse(response);
-                console.log(data);
                 if (data.status == 200) {
                     $("#newVocab").remove();
                     var new_row = "<tr id='vocab_" + data.item_id + "' class='new_item'><td>" + englishValue + "</td><td>" + germanValue + "</td><td><button class='btn btn-danger btn-sm delete_item font-weight-bold'><i class='fa fa-trash'><i></button></td></tr>";
