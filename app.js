@@ -79,7 +79,7 @@ function add_handler(){
                 console.log(data);
                 if (data.status == 200) {
                     $("#newVocab").remove();
-                    var new_row = "<tr id='vocab_" + data.item_id + "' class='new_item'><td>" + englishValue + "</td><td>" + germanValue + "</td><td><button class='btn btn-danger btn-sm delete_item'><i class='fa fa-trash'><i></button></td></tr>";
+                    var new_row = "<tr id='vocab_" + data.item_id + "' class='new_item'><td>" + englishValue + "</td><td>" + germanValue + "</td><td><button class='btn btn-danger btn-sm delete_item font-weight-bold'><i class='fa fa-trash'><i></button></td></tr>";
                     $('#app table tbody').prepend(new_row);
                     $('#newItem').fadeIn();
 
