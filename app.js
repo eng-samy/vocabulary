@@ -21,6 +21,7 @@ function load_vocabs() {
     $('#pageTitle').hide();
     $('#actions').hide();
     $('#backHome').hide();
+    $('#percentage').hide();
     $.ajax({
         url: endpoint + "vocabulary"
     }).done(function(data) {
@@ -286,15 +287,14 @@ function get_results() {
     $.post(endpoint + "vocabulary/submit_results", {
         answers: JSON.stringify(answers)
     }).done(function(response) {
-        console.log("Results Loaded", response);
         data = JSON.parse(response);
-        show_results(data.results);
+        show_results(data);
     });
 }
 
-function show_results(results) {
+function show_results(data) {
     var table_data = "";
-    $.each(results, function(key, value) {
+    $.each(data.results, function(key, value) {
         if (value.result == 0) {
             var indictor = "<span class='result-indictor font-weight-bold wrong-answer'><i class='fa fa-times'></i> Wrong Answer</span>";
         } else {
@@ -304,11 +304,15 @@ function show_results(results) {
     });
 
     $('#results table tbody').html(table_data);
+    $('#hitsParcentage').html(data.hits+"%");
+    $('#missesParcentage').html(data.misses+"%");
+
     $('#pageTitle').html('<i class="fa fa-signal"></i> Test Results');
     $('#backHome').show();
     $('#newItem').hide();
     $('#startTest').html('<i class="fa fa-play"></i> Retry');
     $('#actions').show();
+    $('#percentage').show();
     $('#app').html($('#results').html());
 }
 

@@ -30,6 +30,23 @@
 
         <div class="container-header div-width mx-auto">
             <h3 id="pageTitle" class="hidden"><i class="fa fa-list"></i> Vocabulary List </h3>
+
+            <div class="row hidden" id="percentage">
+                <div class="card mb-3 col-md-3 offset-md-3 col-5 parcentage_box">
+                    <div class="card-header text-success">Hits Percentage</div>
+                    <div class="card-body text-success">
+                        <h1 class="card-title text-center font-weight-bold" id="hitsParcentage"></h1></h5>
+                    </div>
+                </div>
+
+                <div class="card mb-3 col-md-3 offset-md-1 col-5 offset-2 parcentage_box">
+                    <div class="card-header text-danger">Misses Percentage</div>
+                    <div class="card-body text-danger">
+                        <h1 class="card-title text-center font-weight-bold" id="missesParcentage"></h1>
+                    </div>
+                </div>
+            </div>
+
             <div id="actions" class="hidden">
                 <div class="search-box">
                     <i class="fa fa-search"></i>
@@ -90,6 +107,7 @@
     </div>
 
     <div class="hidden" id="results">
+
         <table class="table table-striped">
             <thead class="thead">
                 <tr>

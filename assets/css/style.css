@@ -252,3 +252,21 @@ button.btn {
         transform: rotate(360deg);
     }
 }
+
+.parcentage_box{
+    padding: 0 
+}
+
+#percentage {
+    margin-bottom: 20px;
+    display: flex;
+    padding: 15px
+}
+
+.text-danger{
+    color: #59c972 !important
+}
+
+.text-danger{
+    color: #802201 !important
+}

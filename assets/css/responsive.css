@@ -70,6 +70,18 @@
     #vocab_content {
         margin-top: 10px
     }
+
+    #percentage {
+        margin: 0
+    }
+
+    #percentage .card-body {
+        padding: 10px 0 0 0;
+    } 
+
+    #percentage .card-body .card-title {
+        font-size: 26px;
+    } 
 }
 
 /* Small devices (landscape phones, 576px and up) */
@@ -145,6 +157,19 @@
         margin-top: 10px
     }
 
+    #percentage {
+        margin: 0
+    }
+
+    #percentage .card-body {
+        padding: 10px 0 0 0;
+    } 
+
+    #percentage .card-body .card-title {
+        font-size: 26px;
+    } 
+
+    
 }
 
 /*  Medium devices (tablets, 768px and up) */
@@ -221,6 +246,18 @@
     #vocab_content {
         margin-top: 10px
     }
+
+    #percentage {
+        margin: 0
+    }
+
+    #percentage .card-body {
+        padding: 10px 0 0 0;
+    } 
+
+    #percentage .card-body .card-title {
+        font-size: 26px;
+    } 
 }
 
 /*  Large devices (desktops, 992px and up) */

@@ -57,14 +57,20 @@ class Vocabulary extends CI_Controller {
 		}else{
 			$results = array();
 			$answers = json_decode($_POST['answers']);
+			$hits =0;
 			foreach($answers as $answer){
 				$db_row = $this->Vocabulary_Model->find_one($answer->id);
 				$db_row['answer'] = $answer->answer;
-				$db_row['result'] = $answer->answer === $db_row['translated_word']? 1 : 0 ;
+				$is_correct = $answer->answer === $db_row['translated_word']? 1 : 0 ;
+				$hits += $is_correct;
+				$db_row['result'] = $is_correct ;
 				array_push($results,$db_row);
 			}
 
-			echo json_encode(array('status' => 200,'results' => $results));			
+			$hits_percenatge = round(($hits/count($answers))*100,2);
+			$misses_percenatge = 100 - $hits_percenatge;
+
+			echo json_encode(array('status' => 200,'results' => $results, 'hits' => $hits_percenatge, 'misses' => $misses_percenatge));			
 			
 		}
 	}
