@@ -69,7 +69,8 @@ function add_handler(){
         var germanValue = $('#germanValue').val();
 
         if (require_field($('#englishValue')) && require_field($('#germanValue'))) {
-
+            $(this).attr("disabled", true);
+            $(this).html('<i class="fa fa-spinner fa-spin"></i> Saving');
             $.post(endpoint + "vocabulary/add", {
                 englishValue: englishValue,
                 germanValue: germanValue
