@@ -20,9 +20,10 @@ class Vocabulary extends CI_Controller {
 		if($method != 'POST'){
 			echo json_encode(array('status' => 400,'message' => 'Bad Request'));
 		}else{
+			$this->load->helper('security');
 
-			$data['native_word'] = $_POST['englishValue'];
-			$data['translated_word'] = $_POST['germanValue'];
+			$data['native_word'] = $this->security->xss_clean($_POST['englishValue']);
+			$data['translated_word'] = $this->security->xss_clean($_POST['germanValue']);
 			$is_inserted = $this->Vocabulary_Model->add($data);
 			if($is_inserted){
 				echo json_encode(array('status' => 200,'message' => 'Added Successfully','item_id'=>$is_inserted));
