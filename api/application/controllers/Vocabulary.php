@@ -22,8 +22,8 @@ class Vocabulary extends CI_Controller {
 		}else{
 			$this->load->helper('security');
 
-			$data['native_word'] = $this->security->xss_clean($this->input->post(['englishValue']));
-			$data['translated_word'] = $this->security->xss_clean($this->input->post(['germanValue']));
+			$data['native_word'] = $this->security->xss_clean($this->input->post('englishValue'));
+			$data['translated_word'] = $this->security->xss_clean($this->input->post('germanValue'));
 			$is_inserted = $this->Vocabulary_Model->add($data);
 			if($is_inserted){
 				echo json_encode(array('status' => 200,'message' => 'Added Successfully','item_id'=>$is_inserted, 'native_word' => $data['native_word'], "translated_word" => $data['translated_word']));
